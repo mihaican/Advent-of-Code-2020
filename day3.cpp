@@ -31,9 +31,9 @@ using namespace std;
 ifstream fin("aoc3.in");
 long long a[500][500];
 char x;
-long long vtraseu(int angle,int jos){
+long long vtraseu(int angle,int down){
     long long trees=0,j=1;
-     for(int i=1;i<=323;i+=jos){
+     for(int i=1;i<=323;i+=down){
            if(a[i][j]==1)
                 trees++;
             j+=angle;
