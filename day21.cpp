@@ -10,7 +10,6 @@ map <int,vector <string> > ingredients;
 map <int,vector <string> > alergens;
 map <string ,set <string> > possible_alergens;
 map <string,bool> check_alergen;
-set <string> all_ingredients;
 set <string> counter;
 int id=1;
 int main(){
@@ -39,8 +38,8 @@ int main(){
                     for(auto& t:q.second){//goes through all alergens from id=q
                         if(j==t){ //if i find the same alergens i intersect the list of ingredients
                             set <string> intersection;
-                            for(auto &k:ingredients[i.first]) //goes through all ingredients from the i recipe   
-                                for(auto &p:ingredients[q.first]) //goes through all ingredients from the q recipe
+                            for(auto& k:ingredients[i.first]) //goes through all ingredients from the i recipe   
+                                for(auto& p:ingredients[q.first]) //goes through all ingredients from the q recipe
                                     if(k==p)
                                         intersection.insert(k);
                                 if(check_alergen[j]==false){ // Special case for the first intersection
@@ -49,7 +48,7 @@ int main(){
                                     check_alergen[j]=true;
                                 }
                                 else
-                                    for(auto &l:possible_alergens[j]){
+                                    for(auto& l:possible_alergens[j]){
                                         int exists=0;
                                         for(auto& r:intersection)
                                             if(l==r)
@@ -65,12 +64,12 @@ int main(){
 
         }
     }
-    for(auto&i:possible_alergens)
-        for(auto&j:i.second)
+    for(auto& i:possible_alergens)
+        for(auto& j:i.second)
             counter.insert(j);
     int sol=0;
-    for(auto&i:ingredients)
-        for(auto&j:i.second)
+    for(auto& i:ingredients)
+        for(auto& j:i.second)
             if(!counter.count(j))
                 sol++;
     cout<<"Part 1: "<<sol<<endl;
@@ -79,7 +78,7 @@ int main(){
 
     for(auto& i:possible_alergens){
         cout<<i.first<<": ";
-        for(auto&j:i.second)
+        for(auto& j:i.second)
             cout<<j<<" ";
         cout<<endl;
     }
