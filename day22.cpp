@@ -25,11 +25,11 @@ int combat(deque <int> player1, deque <int> player2,int no){
         //------------------------------------------------
         int card1=player1.front();
         int card2=player2.front();
-        for(auto&i: hands_played1)
+        for(auto& i:hands_played1)
             if(i==player1)
                 round_win=1;
         hands_played1.push_back(player1);
-        for(auto&i :hands_played2)
+        for(auto& i:hands_played2)
             if(i==player2)
                 round_win=1;
         hands_played2.push_back(player2);
@@ -93,7 +93,7 @@ int main(){
     }
     combat(player1,player2,game);
     long long score=0;
-    for(auto&i :winner){
+    for(auto& i:winner){
         score+=i*winner.size();
         winner.pop_front();
         cout<<i<<" ";
