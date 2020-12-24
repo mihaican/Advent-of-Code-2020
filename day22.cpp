@@ -44,7 +44,7 @@ int combat(deque <int> player1, deque <int> player2,int no){
             for(int i=1;i<=card2;i++){
                 new_deck2.push_back(player2.front());
                 player2.pop_front();
-            }//cout<<"AICI SE SCHIMBA"<<endl;
+            }
             round_win=combat(new_deck1,new_deck2,++game);
             player1=aux1;
             player2=aux2;
